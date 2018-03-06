@@ -1,0 +1,38 @@
+{
+	"name": "@xassist/xassist-main",
+	"version": "0.1.12",
+	"description": "main functions with onready, id-generator and templating engine",
+	"keywords": [
+		"xAssist",
+		"onready",
+		"utilities"
+	],
+	"bugs": {
+		"email": "gregory.beirens@gmail.com"
+	},
+	"license": "GPL-3.0-only",
+	"author": {
+		"name": "Gregory Beirens",
+		"email": "gregory.beirens@gmail.com"
+	},
+	"main": "dist/xAssist-main.js",
+	"scripts": {
+		"pretest": "rimraf dist  && rollup -c",
+		"test": "istanbul cover node_modules/tape/bin/tape test/**/*-test.js",
+		"build": "npm run test",
+		"prepublishOnly": "npm version patch && npm run build"
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"devDependencies": {
+		"jsdom": "^11.6.2",
+		"rimraf": "^2.6.2",
+		"rollup": "^0.56.3",
+		"rollup-plugin-json": "^2.3.0",
+		"rollup-plugin-node-resolve": "^3.0.3",
+		"tape": "^4.9.0"
+	},
+	"dependencies": {}
+}
