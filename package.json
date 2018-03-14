@@ -10,17 +10,20 @@
 	"bugs": {
 		"email": "gregory.beirens@gmail.com"
 	},
-	"license": "GPL-3.0-only",
+	"license": "GPL-3.0",
 	"author": {
 		"name": "Gregory Beirens",
 		"email": "gregory.beirens@gmail.com"
 	},
 	"main": "dist/xAssist-main.js",
 	"scripts": {
-		"pretest": "rimraf dist  && rollup -c",
-		"test": "istanbul cover node_modules/tape/bin/tape test/**/*-test.js",
-		"build": "npm run test",
-		"prepublishOnly": "npm version patch && npm run build"
+		 "pretest": "rimraf dist  && rollup -c",
+		"test": "istanbul cover node_modules/tape/bin/tape test/**/*-test.js && eslint index.js src",
+		"posttest": "npm run uglify",
+		"build": "npm run test && git commit -am ",
+		"prepublishOnly": "npm version patch && npm run build  -- \"publish latest version\"",
+		"postpublish": "git push && git push --tags",
+		"uglify": "uglifyjs  --comments /^@preserve/ dist/xAssist-main.js -c -m -o dist/xAssist-main.min.js"
 	},
 	"files": [
 		"dist",
@@ -34,5 +37,10 @@
 		"rollup-plugin-node-resolve": "^3.0.3",
 		"tape": "^4.9.0"
 	},
-	"dependencies": {}
+	"dependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/GregBee2/xassist-main.git"
+	  },
+	  "homepage": "https://github.com/GregBee2/xassist-main#readme"
 }

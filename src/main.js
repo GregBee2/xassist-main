@@ -15,12 +15,12 @@ function readyHandler(){
 	//empty readyCallBacks
 	readyCallBacks=[];
 	isReady=true;
-};
+}
 export function id(prefix){
 	//creates unique ID based on 
 	return ((!arguments.length?'':prefix+'_')+idSeed++);
 	
-};
+}
 export function ready(callBack,thisArg){
 	//thisArg refers to this inside callback
 	if(!thisArg){
@@ -35,10 +35,10 @@ export function ready(callBack,thisArg){
 		readyCallBacks.push([callBack,thisArg]);
 	}
 	
-};
+}
 export function template(text,obj,notfoundText){
 	notfoundText=(notfoundText?notfoundText:"");
-	return text.replace(/\${([^}]*)}/g,function(match,p1,offset){
+	return text.replace(/\${([^}]*)}/g,function(match,p1){
 		
 		return p1.split(".").reduce(function(obj,prop){
 			if(obj.hasOwnProperty(prop)){
@@ -47,7 +47,7 @@ export function template(text,obj,notfoundText){
 			return notfoundText;
 		},obj);
 	});
-};
+}
 
 
 

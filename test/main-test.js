@@ -4,7 +4,7 @@ global.window=dom.window;
 global.document =global.window.document;
 
 var definition = require("../package.json");
-var main=require("../"+definition.main);4
+var main=require("../"+definition.main);
 var tape=require("tape");
 
 

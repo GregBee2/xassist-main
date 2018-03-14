@@ -1,8 +1,9 @@
-// @xassist/xassist-main Version 0.1.12.
-// Copyright 2018 Gregory Beirens.
-// Created on Mon, 05 Mar 2018 08:19:46 GMT.
-
-/*istanbul ignore next*/
+/**
+* @preserve
+* https://github.com/GregBee2/xassist-main#readme Version 0.1.12.
+*  Copyright 2018 Gregory Beirens.
+*  Created on Wed, 14 Mar 2018 12:49:17 GMT.
+*/
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -23,11 +24,13 @@ function readyHandler(){
 	//empty readyCallBacks
 	readyCallBacks=[];
 	isReady=true;
-}function id(prefix){
+}
+function id(prefix){
 	//creates unique ID based on 
 	return ((!arguments.length?'':prefix+'_')+idSeed++);
 	
-}function ready(callBack,thisArg){
+}
+function ready(callBack,thisArg){
 	//thisArg refers to this inside callback
 	if(!thisArg){
 		thisArg=document;
@@ -41,9 +44,10 @@ function readyHandler(){
 		readyCallBacks.push([callBack,thisArg]);
 	}
 	
-}function template(text,obj,notfoundText){
+}
+function template(text,obj,notfoundText){
 	notfoundText=(notfoundText?notfoundText:"");
-	return text.replace(/\${([^}]*)}/g,function(match,p1,offset){
+	return text.replace(/\${([^}]*)}/g,function(match,p1){
 		
 		return p1.split(".").reduce(function(obj,prop){
 			if(obj.hasOwnProperty(prop)){

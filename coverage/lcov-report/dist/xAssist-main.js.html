@@ -25,9 +25,9 @@
         <span class='fraction'>29/29</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">65% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>20/20</span>
+        <span class='fraction'>13/20</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -38,10 +38,6 @@
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
         <span class='fraction'>29/29</span>
-      </div>
-      <div class='fl pad1y'>
-        <span class="strong">7 branches</span>
-        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
       </div>
     </div>
   </div>
@@ -110,24 +106,29 @@
 61
 62
 63
-64</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+64
+65
+66
+67
+68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
@@ -135,10 +136,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2×</span>
@@ -151,6 +154,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -173,14 +177,15 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// @xassist/xassist-main Version 0.1.12.
-// Copyright 2018 Gregory Beirens.
-// Created on Mon, 05 Mar 2018 08:19:46 GMT.
-&nbsp;
-/*istanbul ignore next*/
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+* @preserve
+* https://github.com/GregBee2/xassist-main#readme Version 0.1.12.
+*  Copyright 2018 Gregory Beirens.
+*  Created on Wed, 14 Mar 2018 12:49:17 GMT.
+*/
 (function (global, factory) {
 	typeof exports === 'object' &amp;&amp; typeof module !== 'undefined' ? factory(exports) :
-<span class="branch-1 cbranch-skip" title="branch not covered" >	typeof define === 'function' &amp;&amp; define.amd ? define(['exports'], factory) :</span>
+<span class="branch-1 cbranch-no" title="branch not covered" >	typeof define === 'function' &amp;&amp; define.amd ? define(['exports'], factory) :</span>
 	(factory((global.xa = global.xa || {})));
 }(this, (function (exports) { 'use strict';
 &nbsp;
@@ -198,11 +203,13 @@ function readyHandler(){
 	//empty readyCallBacks
 	readyCallBacks=[];
 	isReady=true;
-}function id(prefix){
+}
+function id(prefix){
 	//creates unique ID based on 
 	return ((!arguments.length?'':prefix+'_')+idSeed++);
 	
-}function ready(callBack,thisArg){
+}
+function ready(callBack,thisArg){
 	//thisArg refers to this inside callback
 	if(!thisArg){
 		thisArg=document;
@@ -216,9 +223,10 @@ function readyHandler(){
 		readyCallBacks.push([callBack,thisArg]);
 	}
 	
-}function template(text,obj,notfoundText){
+}
+function template(text,obj,notfoundText){
 	notfoundText=(notfoundText?notfoundText:"");
-	return text.replace(/\${([^}]*)}/g,function(match,p1,offset){
+	return text.replace(/\${([^}]*)}/g,function(match,p1){
 		
 		return p1.split(".").reduce(function(obj,prop){
 			if(obj.hasOwnProperty(prop)){
@@ -242,7 +250,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 05 2018 09:19:48 GMT+0100 (Romance Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 14 2018 13:49:18 GMT+0100 (Romance Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>
