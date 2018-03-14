@@ -1,6 +1,6 @@
 {
 	"name": "@xassist/xassist-main",
-	"version": "0.1.12",
+	"version": "0.1.13",
 	"description": "main functions with onready, id-generator and templating engine",
 	"keywords": [
 		"xAssist",
