@@ -17,7 +17,7 @@
 	},
 	"main": "dist/xAssist-main.js",
 	"scripts": {
-		 "pretest": "rimraf dist  && rollup -c",
+		"pretest": "rimraf dist  && rollup -c",
 		"test": "istanbul cover node_modules/tape/bin/tape test/**/*-test.js && eslint index.js src",
 		"posttest": "npm run uglify",
 		"build": "npm run test && git commit -am ",
@@ -33,14 +33,12 @@
 		"jsdom": "^11.6.2",
 		"rimraf": "^2.6.2",
 		"rollup": "^0.56.3",
-		"rollup-plugin-json": "^2.3.0",
-		"rollup-plugin-node-resolve": "^3.0.3",
 		"tape": "^4.9.0"
 	},
 	"dependencies": {},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/GregBee2/xassist-main.git"
-	  },
-	  "homepage": "https://github.com/GregBee2/xassist-main#readme"
+	},
+	"homepage": "https://github.com/GregBee2/xassist-main#readme"
 }
