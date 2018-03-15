@@ -1,8 +1,8 @@
 /**
 * @preserve
-* https://github.com/GregBee2/xassist-main#readme Version 0.1.14.
+* https://github.com/GregBee2/xassist-main#readme Version 0.1.15.
 *  Copyright 2018 Gregory Beirens.
-*  Created on Wed, 14 Mar 2018 12:56:26 GMT.
+*  Created on Thu, 15 Mar 2018 08:26:35 GMT.
 */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
