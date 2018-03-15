@@ -26,10 +26,6 @@
 		"postpublish": "git push && git push --tags",
 		"uglify": "uglifyjs  --comments /^@preserve/ dist/xAssist-main.js -c -m -o dist/xAssist-main.min.js"
 	},
-	"files": [
-		"dist",
-		"src"
-	],
 	"devDependencies": {
 		"jsdom": "^11.6.2",
 		"rimraf": "^2.6.2",

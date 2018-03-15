@@ -26,18 +26,19 @@ npm test
 
 The scripts are mainly written for the browser, some functions may be usefull for Node, but this is not tested.
 
-### unique identifier
+### id([prefix::String])
 
-The function id() returns a unique identifier.
+The function id() returns a unique identifier. The value it returns is a ```String``` formatted ```Number```.
+```id()``` has 1 optional parameter: ```prefix```. This parameter will be used as a prefix for the id.
 
 ```js
 xa.id() \\returns an unique identifier
 xa.id("prefix") \\returns "prefix_"+unique identifier
 ```
 
-### ready
+### ready(callBack::function [,thisArg])
 
-The function ready(cb,thisArg) executes cb when the DOMContentLoaded-event is triggered. or immediatly when the DOM was allready ready.
+The function ```ready(cb,thisArg)``` executes the callback-function ```cb``` when the DOMContentLoaded-event is triggered. or immediatly, when the DOM was allready ready.
 
 ```js
 xa.ready(cb) 			\\executes cb(eventDetails) (this inside cb references the document)
