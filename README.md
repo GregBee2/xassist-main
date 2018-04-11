@@ -1,72 +1,72 @@
 # @xassist/xassist-main
-
-main functions with onready, id-generator and templating engine
-
+This module provides some helperfunctions like onready, id-generator and templating engine
 ## Installation
 
-This is a [Node.js](https://nodejs.org/) module available through the 
-[npm registry](https://www.npmjs.com/). It can be installed using the 
-[`npm`](https://docs.npmjs.com/getting-started/installing-npm-packages-locally)
-or 
-[`yarn`](https://yarnpkg.com/en/)
-command line tools.
+If you use [NPM](https://www.npmjs.com/), you can install the module via `npm install xassist-main`. Otherwise, you can download the latest [minified file](https://raw.githubusercontent.com/GregBee2/xassist-csv/master/dist/xAssist-main.min.js). Be aware any dependencies are not installed by default; you should consider downloading them yourself.
+If you want, you can install the complete library from github [xassist](https://github.com/GregBee2/xassist), this includes all dependencies you may need.
 
-```sh
-npm install @xassist/xassist-main --save
+The module uses [UMD](https://github.com/umdjs/umd) and supports [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD), [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) and vanilla environments. Using vanilla: the `xa`global is exported:
+
+```html
+<script>
+xa.id()
+</script>
 ```
 
-## Tests
 
-```sh
-npm install
-npm test
-```
 
-## Usage
+## API
+### id()
 
-The scripts are mainly written for the browser, some functions may be usefull for Node, but this is not tested.
-
-### id([prefix::String])
-
-The function id() returns a unique identifier. The value it returns is a ```String``` formatted ```Number```.
-```id()``` has 1 optional parameter: ```prefix```. This parameter will be used as a prefix for the id.
-
+The function id() returns a unique identifier
 ```js
 xa.id() \\returns an unique identifier
 xa.id("prefix") \\returns "prefix_"+unique identifier
 ```
+#### Parameters for id()
+`id()` takes 1 parameters:
+- *prefix* [`String`,defaults to: `""`]:This parameter will be used as a prefix for the id.
+#### Result for id()
+The value it returns is a `String`-formatted `Number`
+### ready()
 
-### ready(callBack::function [,thisArg])
-
-The function ```ready(cb,thisArg)``` executes the callback-function ```cb``` when the DOMContentLoaded-event is triggered. or immediatly, when the DOM was allready ready.
-
+The function adds a callback to the DOMContentLoaded-event, it get's executed when this event is triggered. or immediatly, when the DOM was allready ready.
 ```js
-xa.ready(cb) 			\\executes cb(eventDetails) (this inside cb references the document)
-xa.ready(cb,thisArg) 	\\executes cb(eventDetails) (this inside cb references thisArg) 
+ready(callBack::function [,thisArg])
 ```
-
-### templating engine
-
-A basic templating engine (xa.template()) is added
-
+`ready()` returns nothing.
+#### Parameters for ready()
+`ready()` takes 2 parameters:
+- **callBack** [`Function`]:The listener to be attached to the DOMContentLoaded-event
+- *thisArg* [*any datatype*,defaults to: `document`]:the execution-context of the function
+#### Example for ready()
 ```js
-xa.template(txt,obj,strNotFound) \\replaces all $(objKey) with the respective objKey of obj, if the key is not found, it uses strNotFound (defaults to '')
+xa.ready(cb)    \\executes cb(eventDetails) (this inside cb references the document)
+xa.ready(cb,thisArg)  \\executes cb(eventDetails) (this inside cb references thisArg)
+```
+### template()
+
+A basic templating engine, which replaces substrings in a `String` based on a given object and his keys.
+```js
+xa.template(txt,obj,strNotFound)
+```
+#### Parameters for template()
+`template()` takes 3 parameters:
+- **txt** [`String`]:the base tekst where the templating-engine needs to change certain substrings (it replaces all `${objKey}`)
+- **obj** [`Object`]:the lookup-object to find the defined key's in txt
+- *strNotFound* [`String`,defaults to: `""`]:when the respective key is not found in the lookupObject, the template get's replaced by this string
+#### Result for template()
+the string with all its replaced substrings
+#### Example for template()
+```js
 xa.template('start${a}${b.c.d}${b.c.d.e}',{a:"OK",b:{c:{d:"VERYDEEP"}}},"notfound") \\returns 'startOKVERYDEEPnotfound'
 ```
-
-
-## Dependencies
-
-None
-
-## Dev Dependencies
-
-- [rimraf](https://ghub.io/rimraf): A deep deletion module for node (like `rm -rf`)
-- [rollup](https://ghub.io/rollup): Next-generation ES6 module bundler
-- [rollup-plugin-json](https://ghub.io/rollup-plugin-json): Convert .json files to ES6 modules:
-- [rollup-plugin-node-resolve](https://ghub.io/rollup-plugin-node-resolve): Bundle third-party dependencies in node_modules
-- [tape](https://ghub.io/tape): tap-producing test harness for node and browsers
-
+## DevDependencies
+- [csv2readme](https://github.com/GregBee2/csv2readme#readme): read csv file with fixed format and parse a readme markdown file
+- [jsdom](https://github.com/jsdom/jsdom#readme): A JavaScript implementation of many web standards
+- [rimraf](https://github.com/isaacs/rimraf#readme): A deep deletion module for node (like `rm -rf`)
+- [rollup](https://github.com/rollup/rollup): Next-generation ES6 module bundler
+- [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 ## License
 
-GPL-3.0-only
+This module is licensed under the terms of [GPL-3.0](https://choosealicense.com/licenses/gpl-3.0).
