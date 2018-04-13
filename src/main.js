@@ -5,7 +5,10 @@ var idSeed=Math.round(Math.random()*(1000000)),
 	DOMContentLoadedEvent,
 	readyCallBacks=[],
 	isReady=false;
-document.addEventListener( "DOMContentLoaded", readyHandler,{once:true});
+if(typeof document !== "undefined"){
+	document.addEventListener( "DOMContentLoaded", readyHandler,{once:true});
+}
+
 function readyHandler(){
 	//save event information
 	DOMContentLoadedEvent=arguments[0];
